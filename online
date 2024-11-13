@@ -1,3 +1,7 @@
+<?php
+    // Basic HTML structure with embedded PHP
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,24 +226,24 @@
 
     <!-- Products Section -->
     <section class="products-container" id="products">
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product 1">
-            <h3>Product 1</h3>
-            <p>$10.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product 2">
-            <h3>Product 2</h3>
-            <p>$20.00</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product 3">
-            <h3>Product 3</h3>
-            <p>$15.00</p>
-            <button>Add to Cart</button>
-        </div>
+        <?php
+            // Example product data array
+            $products = [
+                ["name" => "Product 1", "price" => "$10.00", "image" => "https://via.placeholder.com/200"],
+                ["name" => "Product 2", "price" => "$20.00", "image" => "https://via.placeholder.com/200"],
+                ["name" => "Product 3", "price" => "$15.00", "image" => "https://via.placeholder.com/200"]
+            ];
+
+            // Display each product
+            foreach ($products as $product) {
+                echo '<div class="product-card">';
+                echo '<img src="' . $product["image"] . '" alt="' . $product["name"] . '">';
+                echo '<h3>' . $product["name"] . '</h3>';
+                echo '<p>' . $product["price"] . '</p>';
+                echo '<button>Add to Cart</button>';
+                echo '</div>';
+            }
+        ?>
     </section>
 
     <!-- Customer Support Section -->
@@ -269,3 +273,4 @@
     </script>
 </body>
 </html>
+
